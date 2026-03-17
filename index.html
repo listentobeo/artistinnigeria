@@ -36,6 +36,7 @@
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:var(--sans);color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden}
+body.nav-open{overflow:hidden}
 
 /* ===== ANIMATIONS ===== */
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
@@ -674,10 +675,12 @@ const links = document.getElementById('navLinks');
 toggle.addEventListener('click', () => {
   links.classList.toggle('open');
   toggle.classList.toggle('active');
+  document.body.classList.toggle('nav-open');
 });
 links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   links.classList.remove('open');
   toggle.classList.remove('active');
+  document.body.classList.remove('nav-open');
 }));
 
 // Tabs

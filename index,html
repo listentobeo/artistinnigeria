@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artist in Nigeria | Find & Hire Nigerian Artists for Portraits, Murals & Custom Art</title>
+<meta name="description" content="Find talented artists in Nigeria for custom portraits, murals, live painting, and African art. Browse portfolios, compare styles, and book your artist today. Serving all 36 states.">
+<meta name="keywords" content="artist in Nigeria, Nigerian artist, portrait artist Nigeria, hire artist Nigeria, commission art Nigeria, muralist Nigeria, African art">
+<meta property="og:title" content="Artist in Nigeria | Find & Hire Nigerian Artists">
+<meta property="og:description" content="Commission custom portraits, murals, live event painting, and original African art from Nigeria's most talented artists.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://artistinnigeria.com">
+<link rel="canonical" href="https://artistinnigeria.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FFFBF5;
+  --warm-white:#FFF9F2;
+  --sand:#F5EDE3;
+  --clay:#D4A574;
+  --terracotta:#C4723A;
+  --earth:#8B5E3C;
+  --charcoal:#2C2420;
+  --text:#3D3530;
+  --text-light:#7A6F68;
+  --text-lighter:#A89E97;
+  --gold:#B8860B;
+  --gold-light:#D4A843;
+  --border:#E8DED4;
+  --white:#FFFFFF;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideRight{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.23,1,.32,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;transition:all .4s ease;background:transparent}
+nav.scrolled{background:rgba(255,251,245,.95);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.nav-brand{font-family:var(--serif);font-size:1.15rem;color:var(--charcoal);text-decoration:none;letter-spacing:-.02em}
+.nav-brand span{color:var(--terracotta)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-light);text-decoration:none;letter-spacing:.03em;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--terracotta)}
+.nav-cta{background:var(--charcoal);color:var(--cream)!important;padding:.6rem 1.4rem;border-radius:100px;font-size:.8rem!important;letter-spacing:.06em!important;transition:all .3s!important}
+.nav-cta:hover{background:var(--terracotta);color:var(--white)!important;transform:translateY(-1px)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--charcoal);margin:5px 0;transition:all .3s}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:8rem 2rem 6rem}
+.hero::before{content:'';position:absolute;top:-20%;right:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(212,165,116,.12) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(196,114,58,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:600;color:var(--terracotta);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.5rem;animation:fadeUp .8s ease both}
+.hero-eyebrow::before{content:'';width:28px;height:2px;background:var(--terracotta)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);line-height:1.08;color:var(--charcoal);margin-bottom:1.5rem;letter-spacing:-.03em;animation:fadeUp .8s ease .15s both}
+.hero h1 em{font-style:italic;color:var(--terracotta)}
+.hero-sub{font-size:clamp(1.05rem,1.8vw,1.2rem);color:var(--text-light);max-width:580px;line-height:1.75;margin-bottom:2.5rem;font-weight:300;animation:fadeUp .8s ease .3s both}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .8s ease .45s both}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border-radius:100px;font-family:var(--sans);font-size:.88rem;font-weight:600;text-decoration:none;letter-spacing:.04em;transition:all .35s cubic-bezier(.23,1,.32,1);cursor:pointer;border:none}
+.btn-primary{background:var(--charcoal);color:var(--cream)}
+.btn-primary:hover{background:var(--terracotta);transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,114,58,.25)}
+.btn-outline{background:transparent;color:var(--charcoal);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--charcoal);background:var(--charcoal);color:var(--cream);transform:translateY(-2px)}
+.btn svg{width:16px;height:16px;transition:transform .3s}
+.btn:hover svg{transform:translateX(3px)}
+.hero-trust{display:flex;gap:2rem;margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border);animation:fadeUp .8s ease .6s both;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-lighter);font-weight:400}
+.trust-item strong{color:var(--text);font-weight:600}
+
+/* ===== SECTIONS ===== */
+section{padding:6rem 2rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:600;color:var(--terracotta);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem}
+.section-eyebrow::before{content:'';width:20px;height:2px;background:var(--terracotta)}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);color:var(--charcoal);line-height:1.15;margin-bottom:1rem;letter-spacing:-.02em}
+.section-sub{font-size:1.05rem;color:var(--text-light);max-width:600px;line-height:1.75;font-weight:300;margin-bottom:3rem}
+
+/* ===== HOW IT WORKS ===== */
+.how-it-works{background:var(--white)}
+.how-tabs{display:flex;gap:.5rem;margin-bottom:3rem}
+.how-tab{padding:.65rem 1.5rem;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:transparent;color:var(--text-light);transition:all .3s;font-family:var(--sans)}
+.how-tab.active{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal)}
+.how-content{display:none}
+.how-content.active{display:block}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.step{position:relative;padding:2rem}
+.step-num{font-family:var(--serif);font-size:3.5rem;color:var(--sand);line-height:1;margin-bottom:.75rem;font-style:italic}
+.step h3{font-size:1.05rem;font-weight:600;color:var(--charcoal);margin-bottom:.6rem}
+.step p{font-size:.92rem;color:var(--text-light);line-height:1.7;font-weight:300}
+.step::after{content:'';position:absolute;top:2rem;right:0;bottom:2rem;width:1px;background:var(--border)}
+.step:last-child::after{display:none}
+
+/* ===== FEATURED ===== */
+.featured{background:var(--warm-white);position:relative;overflow:hidden}
+.featured::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(135deg,transparent 30%,rgba(212,165,116,.06));pointer-events:none}
+.featured-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 4px 40px rgba(44,36,32,.06);border:1px solid var(--border)}
+.featured-header{background:linear-gradient(135deg,var(--charcoal) 0%,#3D3530 100%);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.featured-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:.4rem 1rem;border-radius:100px;font-size:.72rem;font-weight:600;color:var(--clay);text-transform:uppercase;letter-spacing:.1em}
+.featured-badge::before{content:'';width:6px;height:6px;background:var(--gold-light);border-radius:50%;animation:float 2s ease infinite}
+.featured-name{font-family:var(--serif);font-size:1.8rem;color:var(--white)}
+.featured-tagline{color:rgba(255,255,255,.6);font-size:.9rem;font-weight:300}
+.featured-body{padding:2.5rem 3rem}
+.featured-bio{font-size:1rem;line-height:1.8;color:var(--text-light);margin-bottom:2.5rem;font-weight:300}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin-bottom:2.5rem}
+.service-chip{display:flex;align-items:center;gap:.6rem;padding:.85rem 1.2rem;background:var(--cream);border-radius:12px;font-size:.85rem;font-weight:500;color:var(--text);border:1px solid transparent;transition:all .3s}
+.service-chip:hover{border-color:var(--clay);transform:translateY(-2px)}
+.service-icon{width:32px;height:32px;border-radius:8px;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.featured-ctas{display:flex;gap:1rem;flex-wrap:wrap;padding-top:1.5rem;border-top:1px solid var(--border)}
+.featured-meta{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+.meta-item{font-size:.82rem;color:var(--text-lighter)}
+.meta-item strong{color:var(--text)}
+
+/* ===== CATEGORIES ===== */
+.categories{background:var(--white)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+.cat-card{padding:2rem;background:var(--cream);border-radius:16px;border:1px solid transparent;transition:all .4s cubic-bezier(.23,1,.32,1);cursor:default;position:relative;overflow:hidden}
+.cat-card:hover{border-color:var(--clay);transform:translateY(-4px);box-shadow:0 12px 40px rgba(196,114,58,.08)}
+.cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--terracotta);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.cat-card:hover::before{transform:scaleX(1)}
+.cat-emoji{font-size:1.8rem;margin-bottom:.8rem;display:block}
+.cat-card h3{font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:.4rem}
+.cat-card p{font-size:.85rem;color:var(--text-light);line-height:1.65;font-weight:300}
+
+/* ===== WHY US ===== */
+.why-section{background:var(--warm-white)}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.why-card{padding:2rem;background:var(--white);border-radius:16px;border:1px solid var(--border);transition:all .35s}
+.why-card:hover{box-shadow:0 8px 30px rgba(44,36,32,.06);transform:translateY(-2px)}
+.why-icon{width:40px;height:40px;border-radius:10px;background:var(--sand);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.1rem}
+.why-card h3{font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:.4rem}
+.why-card p{font-size:.9rem;color:var(--text-light);line-height:1.7;font-weight:300}
+.why-label{font-family:var(--serif);font-size:1.4rem;color:var(--charcoal);margin-bottom:1.5rem}
+
+/* ===== STATES ===== */
+.states-section{background:var(--white)}
+.states-grid{display:flex;flex-wrap:wrap;gap:.5rem}
+.state-tag{padding:.5rem 1.1rem;background:var(--cream);border:1px solid var(--border);border-radius:100px;font-size:.8rem;font-weight:500;color:var(--text);text-decoration:none;transition:all .3s;white-space:nowrap}
+.state-tag:hover{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal);transform:translateY(-1px)}
+
+/* ===== FAQ ===== */
+.faq-section{background:var(--warm-white)}
+.faq-list{max-width:800px}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;cursor:pointer;gap:1rem}
+.faq-q h3{font-size:1rem;font-weight:600;color:var(--charcoal);line-height:1.5}
+.faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
+.faq-toggle svg{width:12px;height:12px;transition:transform .3s;color:var(--text)}
+.faq-item.open .faq-toggle{background:var(--charcoal)}
+.faq-item.open .faq-toggle svg{transform:rotate(180deg);color:var(--cream)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:1.5rem}
+.faq-a p{font-size:.92rem;color:var(--text-light);line-height:1.75;font-weight:300}
+
+/* ===== CTA BOTTOM ===== */
+.bottom-cta{background:linear-gradient(135deg,var(--charcoal) 0%,#3D3530 50%,var(--earth) 100%);color:var(--white);text-align:center;padding:6rem 2rem;position:relative;overflow:hidden}
+.bottom-cta::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(212,165,116,.08) 0%,transparent 50%);pointer-events:none}
+.bottom-cta .section-eyebrow{color:var(--clay)}
+.bottom-cta .section-eyebrow::before{background:var(--clay)}
+.bottom-cta .section-title{color:var(--white);margin-left:auto;margin-right:auto}
+.bottom-cta .section-sub{color:rgba(255,255,255,.6);margin-left:auto;margin-right:auto;max-width:560px}
+.bottom-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-white{background:var(--white);color:var(--charcoal)}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5);transform:translateY(-2px)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--charcoal);color:rgba(255,255,255,.4);padding:3rem 2rem;text-align:center}
+footer .footer-inner{max-width:1100px;margin:0 auto}
+footer p{font-size:.82rem;line-height:1.8}
+footer a{color:var(--clay);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.footer-brand{font-family:var(--serif);font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:.5rem}
+
+/* ===== WAITLIST FORM (inline) ===== */
+.waitlist-form{background:var(--cream);border-radius:16px;padding:2.5rem;margin-top:3rem;border:1px solid var(--border)}
+.waitlist-form h3{font-family:var(--serif);font-size:1.3rem;color:var(--charcoal);margin-bottom:.5rem}
+.waitlist-form p{font-size:.88rem;color:var(--text-light);margin-bottom:1.5rem;font-weight:300}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.75rem;font-weight:600;color:var(--text-lighter);text-transform:uppercase;letter-spacing:.08em}
+.form-group input,.form-group select,.form-group textarea{padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:var(--sans);font-size:.9rem;color:var(--text);background:var(--white);transition:border-color .3s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--terracotta)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-submit{margin-top:1rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .steps{grid-template-columns:1fr;gap:1rem}
+  .step::after{display:none}
+  .why-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:auto}
+  .featured-header{padding:2rem}
+  .featured-body{padding:2rem}
+}
+@media(max-width:700px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--cream);flex-direction:column;justify-content:center;align-items:center;gap:2rem;z-index:99}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block;z-index:101}
+  .hero{padding:7rem 1.5rem 4rem;min-height:auto}
+  section{padding:4rem 1.5rem}
+  .hero-trust{flex-direction:column;gap:1rem}
+  .how-tabs{flex-wrap:wrap}
+  .featured-meta{flex-direction:column;gap:.5rem}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Artist in Nigeria",
+  "url": "https://artistinnigeria.com",
+  "description": "Find and hire talented Nigerian artists for custom portraits, murals, live painting, and African art."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How do I commission an artist in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Browse artist profiles on our directory, review their portfolios and pricing, then contact them directly via WhatsApp or their booking form. Share your reference photo, discuss your vision, agree on pricing and timeline, and the artist will begin creating your piece."}},
+    {"@type":"Question","name":"How much does a custom portrait cost in Nigeria?","acceptedAnswer":{"@type":"Answer","text":"Portrait pricing varies depending on the medium, size, number of subjects, and the artist's experience level. Expect anywhere from ₦30,000 for a simple pencil sketch to ₦500,000+ for large oil paintings. Contact artists directly for quotes."}},
+    {"@type":"Question","name":"Do Nigerian artists ship internationally?","acceptedAnswer":{"@type":"Answer","text":"Yes. Many artists on our directory offer worldwide shipping to the UK, USA, Canada, France, and other countries. Artworks are securely packaged with protective framing."}},
+    {"@type":"Question","name":"How long does it take to complete a portrait?","acceptedAnswer":{"@type":"Answer","text":"Pencil portraits typically take 5 to 10 days. Oil paintings may take 7 to 21 days. Rush options are available with some artists."}},
+    {"@type":"Question","name":"How can I list my art business on this directory?","acceptedAnswer":{"@type":"Answer","text":"We are currently accepting applications from professional artists across Nigeria. Fill out the waitlist form on our homepage. We review every application to ensure quality."}},
+    {"@type":"Question","name":"What areas of Nigeria do you cover?","acceptedAnswer":{"@type":"Answer","text":"We cover all 36 Nigerian states and the Federal Capital Territory."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Artist<span>in</span>Nigeria</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#how">How It Works</a>
+      <a href="#artists">Artists</a>
+      <a href="#categories">Categories</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://beoarts.com" target="_blank" rel="noopener" class="nav-cta">Visit Beo Art Studio</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Nigeria's Artist Directory</div>
+    <h1>Find an Artist<br>in <em>Nigeria</em></h1>
+    <p class="hero-sub">Commission custom portraits, murals, live event painting, and original African art from Nigeria's most talented artists. Browse portfolios. Compare styles. Book your artist.</p>
+    <div class="hero-ctas">
+      <a href="#artists" class="btn btn-primary">Browse Artists <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#waitlist" class="btn btn-outline">List Your Art Business</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><strong>36 States</strong>&nbsp;covered nationwide</div>
+      <div class="trust-item"><strong>100+</strong>&nbsp;portraits delivered</div>
+      <div class="trust-item"><strong>Verified</strong>&nbsp;artists only</div>
+      <div class="trust-item"><strong>International</strong>&nbsp;shipping available</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works" id="how">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">The Process</div>
+    <h2 class="section-title reveal">How It Works</h2>
+    <p class="section-sub reveal">Whether you're looking to commission art or get your work seen, we make it simple.</p>
+
+    <div class="how-tabs reveal">
+      <button class="how-tab active" data-tab="clients">For Clients</button>
+      <button class="how-tab" data-tab="artists">For Artists</button>
+    </div>
+
+    <div class="how-content active" id="tab-clients">
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3>Browse</h3>
+          <p>Explore artist profiles by category — portraits, murals, live painting, abstract art, fabric art, and more.</p>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <h3>Compare</h3>
+          <p>View portfolios, read reviews, check pricing, and see which artists serve your area.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <h3>Book</h3>
+          <p>Contact your chosen artist directly via WhatsApp or booking form. Send your photo, agree on pricing, and let them create.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-content" id="tab-artists">
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3>Apply</h3>
+          <p>Submit your portfolio for review. We verify every artist to maintain quality and trust for our clients.</p>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <h3>Build Your Profile</h3>
+          <p>Upload your best work, set your services and pricing, and list the states you serve across Nigeria.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <h3>Get Found</h3>
+          <p>Clients searching for artists across Nigeria find you here. We handle the SEO so you can focus on creating.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED ARTIST ===== -->
+<section class="featured" id="artists">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Featured Profile</div>
+    <h2 class="section-title reveal">Featured Artist</h2>
+    <p class="section-sub reveal">Handpicked for exceptional quality, professionalism, and client satisfaction.</p>
+
+    <div class="featured-card reveal">
+      <div class="featured-header">
+        <div>
+          <div class="featured-badge"><span></span> Featured Artist</div>
+          <div class="featured-name" style="margin-top:.75rem">Beo Art Studio</div>
+          <div class="featured-tagline">Custom Portraits, Murals, Live Painting & SFX Makeup Across Nigeria</div>
+        </div>
+      </div>
+      <div class="featured-body">
+        <p class="featured-bio">Beo Art Studio is a full-service Nigerian art brand founded by Benjamin Odeke, specializing in custom portrait paintings, large-scale murals, live event painting, SFX makeup artistry, and fabric art. Based in Bayelsa State with nationwide delivery across all 36 states and international shipping to the UK, US, France, Benin, and beyond.</p>
+        <p class="featured-bio">Every piece is handmade, story-driven, and crafted to capture the emotion and identity of the subject. Whether you need a family portrait in oil on canvas, a mural for your business, or a live painter at your wedding — Beo Art Studio delivers artistry with a personal touch.</p>
+
+        <div class="services-grid">
+          <div class="service-chip"><div class="service-icon">🎨</div>Oil / Acrylic Portraits</div>
+          <div class="service-chip"><div class="service-icon">✏️</div>Pencil & Charcoal</div>
+          <div class="service-chip"><div class="service-icon">🏛️</div>Large-Scale Murals</div>
+          <div class="service-chip"><div class="service-icon">🎪</div>Live Event Painting</div>
+          <div class="service-chip"><div class="service-icon">🎭</div>SFX Makeup</div>
+          <div class="service-chip"><div class="service-icon">🧵</div>Fabric Art</div>
+        </div>
+
+        <div class="featured-ctas">
+          <a href="https://beoarts.com" target="_blank" rel="noopener" class="btn btn-primary">View Full Portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://beoarts.com" target="_blank" rel="noopener" class="btn btn-outline">Book Beo Art Studio</a>
+        </div>
+
+        <div class="featured-meta">
+          <div class="meta-item"><strong>Based in:</strong> Bayelsa State, Nigeria</div>
+          <div class="meta-item"><strong>Serves:</strong> All 36 states + International</div>
+          <div class="meta-item"><strong>Delivery:</strong> 7–21 days</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="categories" id="categories">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Specialities</div>
+    <h2 class="section-title reveal">What Type of Artist Are You Looking For?</h2>
+    <p class="section-sub reveal">Browse by speciality to find the right artist for your project.</p>
+
+    <div class="cat-grid">
+      <div class="cat-card reveal">
+        <span class="cat-emoji">🖼️</span>
+        <h3>Portrait Artists</h3>
+        <p>Oil, acrylic, pencil, charcoal, and pastel portraits from your photo. Capture memories that last forever.</p>
+      </div>
+      <div class="cat-card reveal reveal-delay-1">
+        <span class="cat-emoji">🏠</span>
+        <h3>Muralists</h3>
+        <p>Large-scale wall art for homes, businesses, churches, schools, and public spaces across Nigeria.</p>
+      </div>
+      <div class="cat-card reveal reveal-delay-2">
+        <span class="cat-emoji">🎉</span>
+        <h3>Live Event Painters</h3>
+        <p>Real-time painting at weddings, birthdays, corporate events, and private celebrations.</p>
+      </div>
+      <div class="cat-card reveal reveal-delay-3">
+        <span class="cat-emoji">🌀</span>
+        <h3>Abstract & Contemporary</h3>
+        <p>Original African-inspired art for collectors, interior decoration, and galleries.</p>
+      </div>
+      <div class="cat-card reveal">
+        <span class="cat-emoji">🎭</span>
+        <h3>SFX & Makeup Artists</h3>
+        <p>Special effects makeup for film, events, editorial shoots, and creative productions.</p>
+      </div>
+      <div class="cat-card reveal reveal-delay-1">
+        <span class="cat-emoji">🧵</span>
+        <h3>Fabric & Textile Artists</h3>
+        <p>Custom fabric art, adire, batik, and wearable art rooted in Nigerian tradition.</p>
+      </div>
+      <div class="cat-card reveal reveal-delay-2">
+        <span class="cat-emoji">🗿</span>
+        <h3>Sculptors & Carvers</h3>
+        <p>Wood, stone, and mixed-media African sculpture and carvings with cultural depth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY ===== -->
+<section class="why-section">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Why Choose Us</div>
+    <h2 class="section-title reveal">Why Use Artist in Nigeria?</h2>
+    <p class="section-sub reveal">Built for clients who want quality art and artists who want to be found.</p>
+
+    <div class="why-label reveal">For Clients</div>
+    <div class="why-grid" style="margin-bottom:3rem">
+      <div class="why-card reveal">
+        <div class="why-icon">✓</div>
+        <h3>Verified Artists Only</h3>
+        <p>Every artist is reviewed for quality and professionalism before being listed. No guesswork — only trusted creatives.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">⟷</div>
+        <h3>Compare Before You Commit</h3>
+        <p>See portfolios, pricing, and reviews side by side so you can make an informed choice that fits your vision and budget.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">📍</div>
+        <h3>All 36 States Covered</h3>
+        <p>Whether you're in Lagos, Abuja, Port Harcourt, Bayelsa, or anywhere in Nigeria — find an artist near you or one who ships nationwide.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">₦</div>
+        <h3>Free to Browse</h3>
+        <p>Searching and contacting artists costs you nothing. Pay the artist directly for the work you commission — no middleman fees.</p>
+      </div>
+    </div>
+
+    <div class="why-label reveal">For Artists</div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🔍</div>
+        <h3>Get Discovered</h3>
+        <p>Stop relying only on Instagram. Clients actively searching Google for artists in Nigeria find you here first.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">📈</div>
+        <h3>SEO Done for You</h3>
+        <p>We rank this platform on Google and AI search so you don't have to. Your profile benefits from our domain authority.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">🖼️</div>
+        <h3>Showcase Your Best Work</h3>
+        <p>Upload your portfolio, set your services, define your pricing, and let the platform market your art for you.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">🌍</div>
+        <h3>Grow Your Client Base</h3>
+        <p>Reach clients across Nigeria and internationally who are ready to commission and pay for quality art.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATES ===== -->
+<section class="states-section" id="states">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Nationwide Coverage</div>
+    <h2 class="section-title reveal">Find Artists Across Nigeria</h2>
+    <p class="section-sub reveal">We connect you with talented artists in every part of the country. Select your state:</p>
+
+    <div class="states-grid reveal">
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Lagos</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Abuja (FCT)</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Rivers</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Bayelsa</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Delta</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Oyo</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Kano</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Edo</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Enugu</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Anambra</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Imo</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Cross River</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Kaduna</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Ogun</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Ondo</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Ekiti</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Osun</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Kwara</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Benue</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Plateau</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Abia</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Akwa Ibom</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Bauchi</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Borno</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Ebonyi</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Gombe</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Jigawa</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Katsina</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Kebbi</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Kogi</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Nasarawa</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Niger</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Sokoto</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Taraba</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Yobe</a>
+      <a href="https://beoarts.com" class="state-tag" target="_blank" rel="noopener">Zamfara</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Common Questions</div>
+    <h2 class="section-title reveal">Frequently Asked Questions</h2>
+    <p class="section-sub reveal">Everything you need to know about finding and hiring an artist in Nigeria.</p>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q"><h3>How do I commission an artist in Nigeria?</h3><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div></div>
+        <div class="faq-a"><p>Browse artist profiles on our directory, review their portfolios and pricing, then contact them directly via WhatsApp or their booking form. Share your reference photo, discuss your vision, agree on pricing and timeline, and the artist will begin creating your piece.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><h3>How much does a custom portrait cost in Nigeria?</h3><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div></div>
+        <div class="faq-a"><p>Portrait pricing varies depending on the medium (oil, acrylic, pencil, charcoal), size, number of subjects, and the artist's experience level. Expect anywhere from ₦30,000 for a simple pencil sketch to ₦500,000+ for large oil paintings. Contact artists directly for accurate quotes.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><h3>Do Nigerian artists ship internationally?</h3><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div></div>
+        <div class="faq-a"><p>Yes. Many artists on our directory offer worldwide shipping to the UK, USA, Canada, France, and other countries. Artworks are securely packaged with protective framing. Ask your chosen artist about international delivery options and costs.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><h3>How long does it take to complete a portrait?</h3><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div></div>
+        <div class="faq-a"><p>Timelines depend on the medium and complexity. Pencil portraits typically take 5 to 10 days. Oil paintings may take 7 to 21 days. Rush options are available with some artists. Always confirm the timeline before commissioning.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><h3>How can I list my art business on this directory?</h3><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div></div>
+        <div class="faq-a"><p>We are currently accepting applications from professional artists across Nigeria. Scroll down to the waitlist form and submit your details. We review every application to ensure quality for our clients.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><h3>Is Artist in Nigeria free to use?</h3><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div></div>
+        <div class="faq-a"><p>Browsing and contacting artists is completely free for clients. Artists pay a listing fee to maintain their profile on the directory. This keeps our platform sustainable and ensures only serious, professional artists are listed.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><h3>What areas of Nigeria do you cover?</h3><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div></div>
+        <div class="faq-a"><p>We cover all 36 Nigerian states and the Federal Capital Territory. Whether you need an artist in Lagos, a muralist in Abuja, or a portrait painter in Bayelsa, our directory connects you with verified professionals across the country.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOTTOM CTA ===== -->
+<section class="bottom-cta" id="waitlist">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Get Started</div>
+    <h2 class="section-title reveal">Ready to Find Your Artist?</h2>
+    <p class="section-sub reveal">Nigeria is home to some of the most talented artists in Africa. The right artist for your project is waiting.</p>
+
+    <div class="bottom-ctas reveal">
+      <a href="https://beoarts.com" target="_blank" rel="noopener" class="btn btn-white">Browse Artists Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#waitlist-form" class="btn btn-ghost">List Your Art Business</a>
+    </div>
+
+    <!-- WAITLIST FORM -->
+    <div class="waitlist-form reveal" id="waitlist-form" style="text-align:left;max-width:700px;margin:3rem auto 0;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1)">
+      <h3 style="color:var(--white)">Join the Artist Directory</h3>
+      <p style="color:rgba(255,255,255,.5)">We're building Nigeria's largest artist directory. Submit your details to join the waitlist. We'll reach out when your profile is ready to go live.</p>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-grid">
+        <div class="form-group">
+          <label style="color:rgba(255,255,255,.4)">Your Name</label>
+          <input type="text" name="name" placeholder="Full name" required style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#fff">
+        </div>
+        <div class="form-group">
+          <label style="color:rgba(255,255,255,.4)">Art Speciality</label>
+          <select name="speciality" required style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#fff">
+            <option value="">Select your speciality</option>
+            <option>Portrait Painting</option>
+            <option>Pencil / Charcoal Drawing</option>
+            <option>Murals</option>
+            <option>Live Event Painting</option>
+            <option>Abstract / Contemporary</option>
+            <option>SFX Makeup</option>
+            <option>Fabric / Textile Art</option>
+            <option>Sculpture / Carving</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label style="color:rgba(255,255,255,.4)">State</label>
+          <input type="text" name="state" placeholder="e.g. Lagos, Bayelsa" required style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#fff">
+        </div>
+        <div class="form-group">
+          <label style="color:rgba(255,255,255,.4)">WhatsApp Number</label>
+          <input type="tel" name="whatsapp" placeholder="+234..." required style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#fff">
+        </div>
+        <div class="form-group">
+          <label style="color:rgba(255,255,255,.4)">Instagram Handle</label>
+          <input type="text" name="instagram" placeholder="@yourhandle" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#fff">
+        </div>
+        <div class="form-group">
+          <label style="color:rgba(255,255,255,.4)">Portfolio Link</label>
+          <input type="url" name="portfolio" placeholder="Website or social link" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#fff">
+        </div>
+        <div class="form-group full form-submit">
+          <button type="submit" class="btn btn-white" style="justify-content:center;width:100%">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Artist<span style="color:var(--clay)">in</span>Nigeria</div>
+    <p>A project by <a href="https://beoarts.com" target="_blank" rel="noopener">Beo Art Studio</a> — connecting Nigeria's creative talent with the world.</p>
+    <p style="margin-top:.5rem">&copy; 2026 artistinnigeria.com &middot; All rights reserved</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  links.classList.toggle('open');
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+// Tabs
+document.querySelectorAll('.how-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.how-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.how-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

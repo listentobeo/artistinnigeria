@@ -18,7 +18,6 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "@next/swc-win32-x64-msvc": "^16.2.11",
     "@supabase/postgrest-js": "^2.110.8",
     "@types/node": "latest",
     "@types/react": "latest",

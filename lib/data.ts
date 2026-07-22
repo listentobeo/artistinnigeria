@@ -1,19 +1,19 @@
 import { featuredArtist, states as fallbackStates } from "./constants";
-import { createSupabaseServerClient, hasSupabase } from "./supabase/server";
+import { createSupabasePublicClient, hasSupabase } from "./supabase/server";
 import type { Artist, NigerianState } from "./types";
 import type { ArtistCategory } from "./categories";
 import { isActiveFeatured } from "./categories";
 
 export async function getStates(): Promise<NigerianState[]> {
   if (!hasSupabase) return fallbackStates;
-  const supabase = await createSupabaseServerClient();
+  const supabase = createSupabasePublicClient();
   const { data } = await supabase.from("states").select("name,slug").order("name");
   return data?.length ? data : fallbackStates;
 }
 
 export async function getApprovedArtists(): Promise<Artist[]> {
   if (!hasSupabase) return [featuredArtist];
-  const supabase = await createSupabaseServerClient();
+  const supabase = createSupabasePublicClient();
   const { data } = await supabase.from("artists").select("*").eq("status", "approved")
     .order("featured", { ascending: false }).order("created_at", { ascending: false });
   return (data as Artist[] | null)?.length ? data as Artist[] : [featuredArtist];
@@ -21,7 +21,7 @@ export async function getApprovedArtists(): Promise<Artist[]> {
 
 export async function getArtist(slug: string): Promise<Artist | null> {
   if (!hasSupabase) return slug === featuredArtist.slug ? featuredArtist : null;
-  const supabase = await createSupabaseServerClient();
+  const supabase = createSupabasePublicClient();
   const { data } = await supabase.from("artists").select("*").eq("slug", slug)
     .eq("status", "approved").maybeSingle();
   return data as Artist | null;

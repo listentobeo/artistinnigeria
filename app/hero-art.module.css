@@ -6,3 +6,46 @@
   object-fit: cover;
   object-position: center 30%;
 }
+
+.marqueeViewport {
+  padding-inline: 0;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.marqueeGroup {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 30px;
+  padding-right: 30px;
+  font-family: var(--serif);
+  font-size: 21px;
+}
+
+.marqueeGroup span {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.marqueeGroup i {
+  color: var(--gold);
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation-play-state: paused;
+  }
+}

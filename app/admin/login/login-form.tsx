@@ -1,0 +1,5 @@
+"use client";
+import { FormEvent, useState } from "react";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+
+export function LoginForm(){const [error,setError]=useState("");const [loading,setLoading]=useState(false);async function submit(event:FormEvent<HTMLFormElement>){event.preventDefault();setLoading(true);setError("");if(!process.env.NEXT_PUBLIC_SUPABASE_URL){setError("Add Supabase environment variables to enable admin login.");setLoading(false);return}const form=new FormData(event.currentTarget);const supabase=createSupabaseBrowserClient();const {error}=await supabase.auth.signInWithPassword({email:String(form.get("email")),password:String(form.get("password"))});if(error){setError(error.message);setLoading(false);return}window.location.href="/admin"}return <form onSubmit={submit}><div className="field"><label>Email</label><input type="email" name="email" required/></div><div className="field"><label>Password</label><input type="password" name="password" required/></div>{error&&<div className="status-message error">{error}</div>}<button className="button" disabled={loading}>{loading?"Signing in…":"Sign in"}</button></form>}

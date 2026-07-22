@@ -1,0 +1,32 @@
+{
+  "name": "artist-in-nigeria",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.3",
+    "@supabase/supabase-js": "^2.110.8",
+    "caniuse-lite": "^1.0.30001806",
+    "lucide-react": "^1.25.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@next/swc-win32-x64-msvc": "^16.2.11",
+    "@supabase/postgrest-js": "^2.110.8",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "^8.5.21",
+    "source-map-js": "^1.2.1",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,8 @@
+.artwork.artwork::after {
+  display: none;
+}
+
+.artwork img {
+  object-fit: cover;
+  object-position: center 30%;
+}

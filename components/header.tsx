@@ -19,7 +19,9 @@ export function Header() {
           <Link href="/find-artists" onClick={() => setOpen(false)}>Find artists</Link>
           <Link href="/#how" onClick={() => setOpen(false)}>How it works</Link>
           <Link href="/#faq" onClick={() => setOpen(false)}>FAQs</Link>
-          <Link className="button button-small" href="/apply" onClick={() => setOpen(false)}>List your work</Link>
+          <Link href="/dashboard" onClick={() => setOpen(false)}>Dashboard</Link>
+          <Link href="/auth/login" onClick={() => setOpen(false)}>Sign in</Link>
+          <Link className="button button-small" href="/apply" onClick={() => setOpen(false)}>Join as an artist</Link>
         </nav>
       </div>
     </header>

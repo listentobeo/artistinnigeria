@@ -12,7 +12,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://artistinnigeria.com
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "Artist in Nigeria | Find & Hire Nigerian Artists", template: "%s | Artist in Nigeria" },
-  description: "Discover verified Nigerian artists for portraits, murals, live painting and original art.",
+  description: "Find and book verified Nigerian artists for portraits, murals, live painting, sculpture, textile, SFX makeup and contemporary art through managed commissions.",
   openGraph: { siteName: "Artist in Nigeria", type: "website", locale: "en_NG" },
   robots: { index: true, follow: true },
 };

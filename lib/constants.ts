@@ -39,11 +39,15 @@ export const featuredArtist: Artist = {
   featured_tier: "owner",
   created_at: "2026-01-01T00:00:00.000Z",
   updated_at: "2026-01-01T00:00:00.000Z",
+  verification_state: "payment_ready",
+  bookable: true,
+  base_state: "Bayelsa",
 };
 
 export const faqs = [
-  ["How do I commission an artist in Nigeria?", "Browse verified profiles, compare portfolios and prices, then contact your chosen artist directly via WhatsApp. Share your idea, agree on the scope, price and timeline, and the artist can begin."],
-  ["How much does a custom portrait cost in Nigeria?", "Prices vary by medium, size, number of subjects and experience. A pencil sketch may start around ₦30,000, while a large oil painting can cost ₦500,000 or more."],
-  ["Do Nigerian artists ship internationally?", "Yes. Many artists offer secure worldwide shipping to the UK, USA, Canada, France and beyond. Confirm delivery options and costs directly with the artist."],
-  ["How are artists verified?", "Every application is reviewed before publication. We check the artist’s identity, portfolio quality, contact details and professional presentation."],
+  ["How do I commission an artist in Nigeria?", "Choose a bookable artist, send the category-specific project brief and review the artist’s written quote. Once you accept the deliverables, timing, revisions and rights, you can pay through Paystack and manage the work from your account."],
+  ["How much does a custom portrait cost in Nigeria?", "Portrait pricing depends on medium, dimensions, number of subjects, framing, delivery and the artist’s experience. The artist provides an itemised written quote before you make any payment."],
+  ["Can I book a Nigerian artist from outside Nigeria?", "You can submit a commission request from abroad. Card acceptance, currency conversion, shipping availability and import costs depend on your bank, Paystack availability, the artist’s quote and the destination."],
+  ["How are artists verified?", "Researched profiles are clearly marked, cannot take bookings and must be claimed by the artist. Booking opens only after ownership, identity, portfolio and payout details have been reviewed by the platform."],
+  ["What does the 10% platform commission cover?", "The artist’s quote shows the artwork subtotal and separate reimbursable costs. Artist in Nigeria retains 10% of the artistic commission subtotal for the managed booking, payment record, communication, dispute and review workflow."],
 ];

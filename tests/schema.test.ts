@@ -1,0 +1,15 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+
+const base=readFileSync(new URL("../supabase/schema.sql",import.meta.url),"utf8");
+const marketplace=readFileSync(new URL("../supabase/marketplace.sql",import.meta.url),"utf8");
+test("marketplace migration removes the legacy all-authenticated artist update policy",()=>{assert.match(marketplace,/drop policy if exists "Authenticated admins can update artists"/);assert.doesNotMatch(marketplace,/for update to authenticated using \(true\)/);});
+test("money and booking records use RLS and server-only payment recording",()=>{for(const table of ["bookings","payment_attempts","ledger_entries","payouts","reviews","artist_updates"])assert.match(marketplace,new RegExp(`alter table public\\.${table} enable row level security`));assert.match(marketplace,/revoke all on function public\.record_paystack_charge/);});
+test("researched artists are never seeded as bookable",()=>{const researchedRows=marketplace.split("-- Researched profiles")[1].split("create or replace function public.approve_artist_claim")[0];assert.doesNotMatch(researchedRows,/'researched',true/);assert.match(researchedRows,/slug='beo-art-studio' and owner_user_id is null/);});
+test("base schema never exposes the service role key",()=>{assert.doesNotMatch(base,/SUPABASE_SERVICE_ROLE_KEY/);});
+test("client roles cannot mutate marketplace financial or ownership records",()=>{assert.match(marketplace,/revoke insert,update,delete on public\.profiles[\s\S]*from anon,authenticated/);assert.match(marketplace,/revoke update,delete on public\.artists from anon,authenticated/);assert.doesNotMatch(marketplace,/create policy "Artist owner or admin updates"/);assert.doesNotMatch(marketplace,/create policy "Booking parties send messages"/);});
+test("claim approval and Paystack recording are service-role-only transactions",()=>{assert.match(marketplace,/create or replace function public\.approve_artist_claim/);assert.match(marketplace,/grant execute on function public\.approve_artist_claim\(uuid,uuid\) to service_role/);assert.match(marketplace,/grant execute on function public\.record_paystack_charge\(text,text,bigint,text,jsonb\) to service_role/);});
+test("private files and 24-hour updates use non-public storage buckets",()=>{assert.match(marketplace,/\('booking-files','booking-files',false,15728640/);assert.match(marketplace,/\('artist-updates','artist-updates',false,26214400/);});
+test("ownership and open payment attempts are unique",()=>{assert.match(marketplace,/artists_one_profile_per_owner_idx/);assert.match(marketplace,/payment_attempts_one_open_idx/);assert.match(marketplace,/Booking is not awaiting payment/);});
+test("public artist access excludes private account and payout columns",()=>{const anonGrant=marketplace.match(/grant select\(([^;]+)\) on public\.artists to anon/)?.[1]||"";assert.doesNotMatch(anonGrant,/email|owner_user_id|paystack_recipient_code/);assert.match(anonGrant,/whatsapp/);});

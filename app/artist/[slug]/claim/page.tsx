@@ -1,0 +1,5 @@
+import { notFound } from "next/navigation";
+import { getArtist } from "@/lib/data";
+import { submitClaim } from "./actions";
+export const metadata={title:"Claim artist profile",robots:{index:false,follow:false}};
+export default async function ClaimPage({params}:{params:Promise<{slug:string}>}){const artist=await getArtist((await params).slug);if(!artist)notFound();return <section className="auth-shell"><form className="auth-card" action={submitClaim}><input type="hidden" name="artist_id" value={artist.id}/><input type="hidden" name="slug" value={artist.slug}/><p className="eyebrow">Ownership verification</p><h1>Claim {artist.business_name}</h1><p>Tell us how to verify that you own or officially manage this artist profile. Include a matching website email, social account, public phone number or other verifiable evidence.</p><div className="field"><label>Verification evidence</label><textarea name="evidence" minLength={40} maxLength={2000} required/></div><button className="button">Submit claim</button></form></section>}

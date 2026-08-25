@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element -- Artist profile media may come from user-configured external storage. */
 import Link from "next/link";
 import type { Artist } from "@/lib/types";
 import { ArrowRight, MapPin, ShieldCheck } from "./icons";
@@ -12,11 +13,11 @@ export function ArtistCard({ artist }: { artist: Artist }) {
         {artist.featured && <span className="featured-pill">Featured</span>}
       </Link>
       <div className="artist-card-body">
-        <div className="verified-line"><ShieldCheck size={15} /> Verified artist</div>
+        <div className={artist.bookable === false ? "verified-line researched-line" : "verified-line"}><ShieldCheck size={15} /> {artist.bookable === false ? "Researched profile · awaiting claim" : "Verified & bookable"}</div>
         <h3><Link href={`/artist/${artist.slug}`}>{artist.business_name}</Link></h3>
         <p className="location"><MapPin size={16} /> {artist.states_served.slice(0, 2).join(" · ")}</p>
         <div className="chips">{artist.categories.slice(0, 3).map((category) => <span key={category}>{category}</span>)}</div>
-        <Link className="card-link" href={`/artist/${artist.slug}`}>View artist <ArrowRight size={17} /></Link>
+        <Link className="card-link" href={`/artist/${artist.slug}`}>{artist.bookable === false ? "Review profile" : "View & book"} <ArrowRight size={17} /></Link>
       </div>
     </article>
   );

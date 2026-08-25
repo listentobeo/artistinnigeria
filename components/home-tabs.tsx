@@ -2,8 +2,8 @@
 import { useState } from "react";
 
 const flows = {
-  clients: [["01", "Search Local Artists", "Browse Nigerian artists by location and speciality."], ["02", "Compare Artist Portfolios", "Review artwork, styles and typical prices."], ["03", "Contact an Artist", "Message your chosen artist directly about your commission."]],
-  artists: [["01", "Create an Artist Profile", "Tell clients about your art practice."], ["02", "Become a Verified Artist", "We review every Nigerian artist personally."], ["03", "Reach Local Art Buyers", "Your profile appears when clients search by location."]],
+  clients: [["01", "Find a verified artist", "Search by service and the artist’s genuine base or service location."], ["02", "Approve a written quote", "Agree on deliverables, timing, revisions, rights and delivery before paying."], ["03", "Pay and track securely", "Use Paystack, follow progress and leave a verified review after completion."]],
+  artists: [["01", "Create or claim a profile", "Own your bio, portfolio, services, locations and availability."], ["02", "Quote structured requests", "Keep the brief, agreement, messages, progress and delivery together."], ["03", "Earn from completed work", "Receive your payout after customer approval; the platform retains 10%."]],
 };
 
 export function HomeTabs() {

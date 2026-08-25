@@ -3,11 +3,11 @@ import { artistCategories, categoryHubUrl, categoryStateUrl } from "@/lib/catego
 import { getApprovedArtists, getStates } from "@/lib/data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://artistinnigeria.com";
+  const base = (process.env.NEXT_PUBLIC_SITE_URL || "https://artistinnigeria.com").replace(/\/$/,"");
   const [artists, states] = await Promise.all([getApprovedArtists(), getStates()]);
   const categoryPages = artistCategories.flatMap((category) => [
     { url: `${base}${categoryHubUrl(category)}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.9 },
-    ...states.map((state) => ({ url: `${base}${categoryStateUrl(category, state.slug)}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.75 })),
+    ...states.filter((state)=>artists.some((artist)=>artist.bookable!==false&&artist.states_served.some(value=>value.toLowerCase()===state.name.toLowerCase())&&artist.categories.some(value=>value.toLowerCase()===category.databaseValue.toLowerCase()))).map((state) => ({ url: `${base}${categoryStateUrl(category, state.slug)}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.75 })),
   ]);
   return [
     { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },

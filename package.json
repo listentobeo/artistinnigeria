@@ -2,18 +2,21 @@
   "name": "artist-in-nigeria",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "node --test --experimental-strip-types tests/*.test.ts",
+    "check": "npm run test && npm run lint && npm run build"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
     "@supabase/supabase-js": "^2.110.8",
     "caniuse-lite": "^1.0.30001806",
     "lucide-react": "^1.25.0",
-    "next": "latest",
+    "next": "16.3.2",
     "react": "latest",
     "react-dom": "latest"
   },
@@ -22,10 +25,17 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "ajv": "^6.12.6",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "esquery": "^1.6.0",
+    "fast-glob": "^3.3.3",
     "postcss": "^8.5.21",
     "source-map-js": "^1.2.1",
-    "typescript": "latest"
+    "typescript": "latest",
+    "uri-js": "^4.4.1"
+  },
+  "overrides": {
+    "nanoid": "3.3.18"
   }
 }

@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createSupabaseServerClient, hasSupabase } from "@/lib/supabase/server";
 import { signOutAccount } from "@/app/auth/actions";
 import { resubmitArtistApplication } from "./artist-actions";
+import { isAdminUser } from "@/lib/auth";
 
 export const metadata = { title: "Account dashboard", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -12,6 +13,7 @@ export default async function DashboardPage() {
   const supabase = await createSupabaseServerClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/auth/login");
+  if (isAdminUser(user)) redirect("/admin");
   const [{ data: profile }, { data: ownedArtist }] = await Promise.all([
     supabase.from("profiles").select("*").eq("user_id", user.id).maybeSingle(),
     supabase.from("artists").select("id,slug,business_name,status,verification_state,bookable,moderation_reason").eq("owner_user_id", user.id).maybeSingle(),

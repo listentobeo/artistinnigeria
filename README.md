@@ -8,7 +8,7 @@ A Next.js and Supabase managed art-commission marketplace. Customers send struct
 2. Copy `.env.example` to `.env.local` and provide the configured values.
 3. Run `supabase/schema.sql` once in Supabase SQL Editor.
 4. Run `supabase/marketplace.sql` once after the base schema.
-5. Give the private administrator user `{"role":"admin"}` in Supabase Auth `app_metadata`.
+5. Run `supabase/promote-owner-admin.sql` once to assign the protected admin role to the existing owner account. Sign out and back in afterward so Supabase issues a fresh JWT.
 6. Run `npm run dev`.
 
 Without environment variables, public pages run in safe preview mode with Beo Art Studio seed data. Accounts, applications, Paystack and private workspaces stay disabled.

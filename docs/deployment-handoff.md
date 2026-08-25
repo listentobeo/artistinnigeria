@@ -11,8 +11,8 @@
 
 1. Commit and push the reviewed working tree. Confirm that Vercel builds the same commit SHA.
 2. Configure the Vercel Production variables listed in `.env.example`. Never expose `SUPABASE_SERVICE_ROLE_KEY` or `PAYSTACK_SECRET_KEY` as public variables.
-3. Back up Supabase, apply `supabase/schema.sql`, then apply `supabase/marketplace.sql` once.
-4. Create your customer account, claim Beo Art Studio, approve the claim from the private admin route, create its Paystack recipient and then mark it `payment_ready` and bookable. Beo intentionally cannot accept a live platform booking before it has an owner account.
+3. Back up Supabase, apply `supabase/schema.sql`, then apply `supabase/marketplace.sql` once. Apply `supabase/promote-owner-admin.sql` to the existing owner account, then sign out and sign in again before opening `/admin`.
+4. From the private admin route, claim Beo Art Studio, approve the claim, create its Paystack recipient and then mark it `payment_ready` and bookable. Beo intentionally cannot accept a live platform booking before it has an owner account.
 5. Keep Paystack in test mode and `PAYSTACK_PAYOUTS_ENABLED=false`. Complete the browser acceptance matrix below.
 6. Remove Vercel Authentication from the intended public Production deployment, while retaining protection on previews if desired.
 7. Add `artistinnigeria.com` and `www.artistinnigeria.com` to the Vercel project. Follow the exact DNS records Vercel displays for the project.
